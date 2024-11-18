@@ -8,7 +8,7 @@ Welcome to my portfolio website! This project showcases my skills, projects, and
 
 - **About Me**: A brief introduction and career summary.  
 - **Skills**: A showcase of my technical and personal skills.  
-- **Projects**: Detailed descriptions of my key projects, including links to live demos or GitHub repositories.  
+- **Projects**: Detailed descriptions of my key projects. 
 - **Contact Section**: Allows users to reach out via email or social media links.  
 - **Responsive Design**: Optimized for desktops, tablets, and mobile devices.  
 

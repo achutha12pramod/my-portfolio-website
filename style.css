@@ -84,8 +84,6 @@ a:hover{
     background-color: black;
     transition: all 0.3 ease-in-out;
 }
-
-
 .menu-links{
     position: absolute;
     top: 100%;
@@ -175,28 +173,44 @@ section{
     font-weight: 600;
 
 }
+/* #abt_me{
+    text-decoration: underline;
+    text-underline-offset: .5rem;
+    text-decoration-color: chocolate;
+} */
+
 .section_text_p1{
     text-align: center;
-    color: black;
+    color: grey;
     font-size: large;
     margin-top: 1rem;
     
 }
 
-.section_text_p2{
-    font-size: 2rem;
-    font-family: monospace; /* Typewriter-style font */
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid black; /* Blinking cursor */
-    animation: typing 4s steps(30, end) forwards, blink-caret 0.75s step-end 4s;
-  }
+.section_text_p2 {
+  font-size: 2rem;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 1px solid black;
+  display: inline-block;
+  width: 0;
+  animation: typing var(--typing-duration, 2s) steps(var(--typing-steps, 30), end) forwards,
+             blink-caret 0.75s step-end;
+}
 
-  /* Typing animation */
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; } /* Reveal full width of text */
-  }
+/* Blinking caret */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: black; }
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
     
 .title{
     font-size: 3rem;
@@ -264,6 +278,78 @@ section{
 .btn-container{
     gap: 1rem;
 }
+/* .btnemail{
+    margin: auto;
+    margin-top: 1rem;
+    width: 100%;
+    height: 100vh;
+    background: #e3ebfe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+#btnemail{
+    width: 150px;
+    height: 50px;
+    border: none;
+    outline: none;
+    background: #2f2f2f;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 1rem;
+    display: block;
+}
+.check-box{
+    width: 50px;
+    height: 50px;
+    border-radius: 40px;
+    box-shadow: 0 0 12px -2px rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    right: -40px;
+    opacity: 0;
+}
+.check-box svg{
+    width: 20px;
+    margin: 15px;
+}
+
+svg path{
+    stroke-width: 3;
+    stroke: #fff;
+    stroke-dasharray: 34;
+    stroke-dashoffset: 34;
+    stroke-linecap: round;
+}
+
+.active{
+    background: #ff2b75;
+    transition: 1s;
+}
+
+.active .check-box{
+    right: 0;
+    opacity: 1;
+    transition: 1s;
+}
+
+.active p{
+    margin-right: 50px;
+    transition: 1s;
+}
+
+.active svg path{
+    stroke-dashoffset: 0;
+    transition: 1s;
+    transition-delay: 1s;
+}
 
 /* About section */
 #about{
@@ -283,6 +369,15 @@ section{
 
 .about-container,.about-details-container{
     display: flex;
+    gap: 2rem;
+
+}
+.details-container:hover{
+    /* background-color: rgb(139, 104, 157); */
+    cursor:pointer;
+}
+.profile_pic{
+    border-radius: 2rem;
 
 }
 .arrow2{
@@ -302,33 +397,120 @@ section{
     flex: 1;
     background: white;
     border-radius: 2rem;
-    border: rgb(53, 53,53) .1rem solid;
-    border-color:rgb(163,163,163)  ;
+    border: rgb(53, 53,53) 0.1rem solid;
+    border-color:rgb(163,163,163);
+    text-align: center;
 }
+
 .section-container{
-    gap: 4rem;
+    gap: 5rem;
     height: 80%;
 }
+/* Profilecard */
+
+.card {
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card-front {
+  background-color: #fff;
+}
+
+.card-back {
+  background-color: rgb(53, 53,53);
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Optional image styling */
+.profile_pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 
+.text-container{
+  flex: 1 1 100%;
+  margin-top: 2rem;
+  text-align: center; 
+}
 /* experience */
 #experience{
     position: relative;
 }
 
+.experience-sub-title{
+    color: rgb(85,85,85);
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+}
 
+.experience-details-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 
+.article-container{
+    display: flex;
+    text-align: initial;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: space-around;
+}
 
+article{
+    display: flex;
+    width: 10rem;
+    justify-content: space-around;
+    gap: 0.5rem;
+}
 
+article.icon{
+    cursor: default;
+}
 
+/* Project */
 
+#Projects{
+    position: relative;
+}
 
+/* Contacts */
 
-
-
-
-
-
+#Contact{
+ position: relative;
+}
 
 
 
@@ -356,6 +538,6 @@ section{
 
 .footer{
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
     color: black;
 }
